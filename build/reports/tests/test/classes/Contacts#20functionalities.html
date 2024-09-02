@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class Contacts functionalities</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class Contacts functionalities</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; Contacts functionalities</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">10.193s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Should be able to create new contacts when the user logs in</td>
+<td class="success">2.230s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to delete the contact</td>
+<td class="success">1.785s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to get contacts list</td>
+<td class="success">1.060s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to get the recently added contact</td>
+<td class="success">1.807s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to update just one attribute of the contact</td>
+<td class="success">1.693s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to update the contact information</td>
+<td class="success">1.618s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+@contacts @smoke @newcontact
+Scenario: Should be able to create new contacts when the user logs in ?[90m# src/test/resources/features/contacts.feature:7?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m                            ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mWhen ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the add contact service?[0m                          ?[90m# stepdefinitions.CreateContactStepDefinitions.user_requested_the_add_contact_service(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mhe should see the contact created successfully?[0m                 ?[90m# stepdefinitions.CreateContactStepDefinitions.user_should_see_the_new_created_contact()?[0m
+
+@contacts @smoke @newcontact
+Scenario: Should be able to delete the contact       ?[90m# src/test/resources/features/contacts.feature:12?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m           ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the add contact service?[0m          ?[90m# stepdefinitions.CreateContactStepDefinitions.user_requested_the_add_contact_service(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mhe should see the contact created successfully?[0m ?[90m# stepdefinitions.CreateContactStepDefinitions.user_should_see_the_new_created_contact()?[0m
+  ?[32mWhen ?[0m?[32mSam try to delete the contact?[0m                 ?[90m# stepdefinitions.DeleteContactStepDefinitions.user_try_to_delete_the_contact()?[0m
+  ?[32mThen ?[0m?[32mhe should see the contact was deleted?[0m         ?[90m# stepdefinitions.DeleteContactStepDefinitions.he_should_see_the_contact_was_deleted()?[0m
+
+@contacts @smoke @newcontact
+Scenario: Should be able to get the recently added contact  ?[90m# src/test/resources/features/contacts.feature:19?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m                  ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the add contact service?[0m                 ?[90m# stepdefinitions.CreateContactStepDefinitions.user_requested_the_add_contact_service(java.lang.String)?[0m
+  ?[32mWhen ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the contact service?[0m                    ?[90m# stepdefinitions.GetContactStepDefinitions.user_requested_the_contact_service(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mhe should see the contact requested was successfully?[0m ?[90m# stepdefinitions.GetContactStepDefinitions.user_should_see_the_contact_requested()?[0m
+
+@contacts @smoke @newcontact
+Scenario: Should be able to get contacts list        ?[90m# src/test/resources/features/contacts.feature:26?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m           ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mWhen ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the list of contacts?[0m            ?[90m# stepdefinitions.GetContactListStepDefinitions.user_requested_the_list_of_contacts(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mhe should see a successfully request response?[0m ?[90m# stepdefinitions.GetContactListStepDefinitions.user_should_see_the_created_contacts()?[0m
+
+@contacts @smoke @newcontact
+Scenario: Should be able to update just one attribute of the contact ?[90m# src/test/resources/features/contacts.feature:31?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m                           ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the add contact service?[0m                          ?[90m# stepdefinitions.CreateContactStepDefinitions.user_requested_the_add_contact_service(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mhe should see the contact created successfully?[0m                 ?[90m# stepdefinitions.CreateContactStepDefinitions.user_should_see_the_new_created_contact()?[0m
+  ?[32mWhen ?[0m?[32mSam try to update just one attribute of the contact?[0m           ?[90m# stepdefinitions.UpdateContactStepDefinitons.user_try_to_update_just_one_attribute_of_the_contact()?[0m
+  ?[32mThen ?[0m?[32mhe should see a successfully response?[0m                         ?[90m# stepdefinitions.UpdateContactStepDefinitons.user_should_see_the_contact_updated()?[0m
+
+@contacts @smoke @newcontact
+Scenario: Should be able to update the contact information ?[90m# src/test/resources/features/contacts.feature:38?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m                 ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the add contact service?[0m                ?[90m# stepdefinitions.CreateContactStepDefinitions.user_requested_the_add_contact_service(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32mhe should see the contact created successfully?[0m       ?[90m# stepdefinitions.CreateContactStepDefinitions.user_should_see_the_new_created_contact()?[0m
+  ?[32mWhen ?[0m?[32mSam try to update the contact?[0m                       ?[90m# stepdefinitions.UpdateContactStepDefinitons.user_try_to_update_the_contact()?[0m
+  ?[32mThen ?[0m?[32mhe should see a successfully response?[0m               ?[90m# stepdefinitions.UpdateContactStepDefinitons.user_should_see_the_contact_updated()?[0m
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to create new contacts when the user logs in(contacts-functionalities;should-be-able-to-create-new-contacts-when-the-user-logs-in)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to create new contacts when the user logs in
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to delete the contact(contacts-functionalities;should-be-able-to-delete-the-contact)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to delete the contact
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to get the recently added contact(contacts-functionalities;should-be-able-to-get-the-recently-added-contact)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to get the recently added contact
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to get contacts list(contacts-functionalities;should-be-able-to-get-contacts-list)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to get contacts list
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to update just one attribute of the contact(contacts-functionalities;should-be-able-to-update-just-one-attribute-of-the-contact)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to update just one attribute of the contact
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to update the contact information(contacts-functionalities;should-be-able-to-update-the-contact-information)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to update the contact information
+----------------------------------------------------------------------
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.3</a> at Aug 21, 2024, 12:03:19 PM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class Users functionalities</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class Users functionalities</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; Users functionalities</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">8.656s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Should be able to create new users when the user logs in</td>
+<td class="success">2.323s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to delete a user</td>
+<td class="success">2.278s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to get the profile information</td>
+<td class="success">1.157s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to logout from the application</td>
+<td class="success">1.114s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Should be able to update a user</td>
+<td class="success">1.784s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+@users @smoke @newuser
+Scenario: Should be able to create new users when the user logs in ?[90m# src/test/resources/features/users.feature:7?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m                         ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mWhen ?[0m?[32mhe requested the add user service?[0m                           ?[90m# stepdefinitions.CreateUserStepDefinitions.user_requested_the_add_user_service()?[0m
+  ?[32mThen ?[0m?[32mhe should see user created successfully?[0m                     ?[90m# stepdefinitions.CreateUserStepDefinitions.user_should_see_the_newly_created_user()?[0m
+
+@users @smoke @newuser
+Scenario: Should be able to delete a user              ?[90m# src/test/resources/features/users.feature:12?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m             ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mWhen ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the delete user service?[0m           ?[90m# stepdefinitions.DeleteUserStepDefinitions.user_requested_the_delete_user_service(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mhe should see the user was deleted successfully?[0m ?[90m# stepdefinitions.DeleteUserStepDefinitions.user_should_see_the_user_was_deleted_successfully()?[0m
+
+@users @smoke @newuser
+Scenario: Should be able to get the profile information ?[90m# src/test/resources/features/users.feature:17?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m              ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the profile service?[0m                 ?[90m# stepdefinitions.GetProfileStepDefinitions.sam_requested_the_profile_service(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mhe should see the profile response successfully?[0m  ?[90m# stepdefinitions.GetProfileStepDefinitions.user_should_see_the_profile_response()?[0m
+
+@users @smoke @newuser
+Scenario: Should be able to logout from the application ?[90m# src/test/resources/features/users.feature:22?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m              ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mWhen ?[0m?[32mSam requested the logout service?[0m                 ?[90m# stepdefinitions.LogOutStepDefinitions.user_requested_the_logout_service()?[0m
+  ?[32mThen ?[0m?[32mhe should exit the app?[0m                           ?[90m# stepdefinitions.LogOutStepDefinitions.user_should_exit_the_app()?[0m
+
+@users @smoke @newuser
+Scenario: Should be able to update a user                   ?[90m# src/test/resources/features/users.feature:27?[0m
+  ?[32mGiven ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m is logged into the application?[0m                  ?[90m# stepdefinitions.CreateContactStepDefinitions.user_is_logged_in_the_application(java.lang.String)?[0m
+  ?[32mWhen ?[0m?[32m?[0m?[32m?[1mSam?[0m?[32m requested the update user service?[0m                ?[90m# stepdefinitions.UpdateUserStepDefinitions.user_requested_the_update_user_service(java.lang.String)?[0m
+samtest@fake.com
+  ?[32mThen ?[0m?[32mhe should see the updated user successfully response?[0m ?[90m# stepdefinitions.UpdateUserStepDefinitions.user_should_see_the_updated_user()?[0m
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to create new users when the user logs in(users-functionalities;should-be-able-to-create-new-users-when-the-user-logs-in)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to create new users when the user logs in
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to delete a user(users-functionalities;should-be-able-to-delete-a-user)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to delete a user
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to get the profile information(users-functionalities;should-be-able-to-get-the-profile-information)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to get the profile information
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to logout from the application(users-functionalities;should-be-able-to-logout-from-the-application)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to logout from the application
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Should be able to update a user(users-functionalities;should-be-able-to-update-a-user)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Should be able to update a user
+----------------------------------------------------------------------
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.3</a> at Aug 21, 2024, 12:03:19 PM</p>
+</div>
+</div>
+</body>
+</html>
