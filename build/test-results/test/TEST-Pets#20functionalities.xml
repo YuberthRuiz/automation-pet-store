@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Pets functionalities" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-03T16:07:05" hostname="MacBook-Pro-de-Yuberth.local" time="13.298">
+  <properties/>
+  <testcase name="Get pet by ID" classname="Pets functionalities" time="13.298"/>
+  <system-out><![CDATA[
+@pets @getpetbyid
+Scenario: Get pet by ID                                   ?[90m# src/test/resources/features/pets.feature:12?[0m
+  ?[32mGiven ?[0m?[32ma pet exists with ID?[0m                              ?[90m# stepdefinitions.PetByIdStepDefinitions.a_pet_exists_with_id()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet endpoint?[0m              ?[90m# stepdefinitions.PetByIdStepDefinitions.a_get_request_is_sent_to_pet()?[0m
+  ?[32mThen ?[0m?[32mthe response status code should be ?[0m?[32m?[1m200?[0m             ?[90m# stepdefinitions.PetByIdStepDefinitions.the_response_status_code_should_be(int)?[0m
+{
+    "id": 10,
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "name": "doggie",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "available"
+}
+{
+    "id": 10,
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "name": "doggie",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "available"
+}
+  ?[32mAnd ?[0m?[32mthe response should contain the correct pet details?[0m ?[90m# stepdefinitions.PetByIdStepDefinitions.the_response_should_contain_the_correct_pet_details()?[0m
+]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Get pet by ID(pets-functionalities;get-pet-by-id)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Get pet by ID
+----------------------------------------------------------------------
+]]></system-err>
+</testsuite>

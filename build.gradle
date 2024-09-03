@@ -46,10 +46,8 @@ dependencies {
             'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.14.0',
             'org.skyscreamer:jsonassert:1.5.1',
             'com.fasterxml.jackson.core:jackson-core:2.15.0-rc2'
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:3.4.1'
     testImplementation 'junit:junit:4.13.1'
-    testImplementation 'junit:junit:4.13.1'
-    testImplementation 'junit:junit:4.13.1'
-
 }
 
 test {

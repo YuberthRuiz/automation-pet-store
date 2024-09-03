@@ -1,30 +1,51 @@
-@users @smoke @newuser
+@users
 Feature: Users functionalities
-  To make smoke testing
-  As a contact list app user
-  I want to create new users
+  To automate functional testing
 
-  Scenario: Should be able to create new users when the user logs in
-    Given Sam is logged into the application
-    When he requested the add user service
-    Then he should see user created successfully
+  Scenario: Create a new user
+    Given valid user details
+    When a POST request is sent to /user
+    Then the response status code should be 200
+    And the user should be retrievable using a GET request to /user/{username}
 
-  Scenario: Should be able to delete a user
-    Given Sam is logged into the application
-    When Sam requested the delete user service
-    Then he should see the user was deleted successfully
+  Scenario: Get user by username
+    Given a user exists with username {username}
+    When a GET request is sent to /user/{username}
+    Then the response status code should be 200
+    And the response should contain the correct user details
 
-  Scenario: Should be able to get the profile information
-    Given Sam is logged into the application
-    And Sam requested the profile service
-    Then he should see the profile response successfully
+  Scenario: Get user by non-existing username
+    Given no user exists with username {username}
+    When a GET request is sent to /user/{username}
+    Then the response status code should be 404
 
-  Scenario: Should be able to logout from the application
-    Given Sam is logged into the application
-    When Sam requested the logout service
-    Then he should exit the app
+  Scenario: Update an existing user
+    Given a user exists with username {username}
+    And new user details are provided
+    When a PUT request is sent to /user/{username}
+    Then the response status code should be 200
+    And a GET request to /user/{username} should return the updated details
 
-  Scenario: Should be able to update a user
-    Given Sam is logged into the application
-    When Sam requested the update user service
-    Then he should see the updated user successfully response
+  Scenario: Delete a user
+    Given a user exists with username {username}
+    When a DELETE request is sent to /user/{username}
+    Then the response status code should be 200
+    And a subsequent GET request to /user/{username} should return a 404 status code
+
+  Scenario: User login
+    Given a user exists with username {username} and password {password}
+    When a GET request is sent to /user/login with valid credentials
+    Then the response status code should be 200
+    And a session token should be returned
+
+  Scenario: User login with invalid credentials
+    Given no user exists with the provided credentials
+    When a GET request is sent to /user/login
+    Then the response status code should be 400
+
+  Scenario: User logout
+    Given a user is logged in
+    When a GET request is sent to /user/logout
+    Then the response status code should be 200
+    And the user session should be invalidated
+

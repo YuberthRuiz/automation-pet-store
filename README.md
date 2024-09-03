@@ -1,6 +1,6 @@
-# Automation Pet API
+# Automation Pet Store API
 
-Automation to validate functional testing for the Pet API and create, search, update and delete functionalities 
+Automation to validate functional testing for the Pet Store API and create, search, update and delete functionalities 
 
 ## Use Gradle
 
