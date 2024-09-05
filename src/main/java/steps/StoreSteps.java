@@ -30,12 +30,20 @@ public class StoreSteps {
                 .extract().response();
         return responseInventoryByStatus;
     }
+    public Response placeAnOrder(File file) {
+        Response responseInventoryByStatus = RestAssured.given().body(file)
+                .contentType("application/json")
+                .when().post("/api/v3/store/order")
+                .then()
+                .extract().response();
+        return responseInventoryByStatus;
+    }
 
     @Step("#actor requested find an order by id")
     public Response findOrderById(int idOrder) {
         Response responseInventoryByStatus = RestAssured.given()
                 .contentType("application/xml")
-                .when().get("/api/v3/store/order" + idOrder)
+                .when().get("/api/v3/store/order/" + idOrder)
                 .then()
                 .extract().response();
         return responseInventoryByStatus;
@@ -45,7 +53,7 @@ public class StoreSteps {
     public Response deleteOrder(int idOrder) {
         Response responseInventoryByStatus = RestAssured.given()
                 .contentType("application/xml")
-                .when().delete("/api/v3/store/order" + idOrder)
+                .when().delete("/api/v3/store/order/" + idOrder)
                 .then()
                 .extract().response();
         return responseInventoryByStatus;
