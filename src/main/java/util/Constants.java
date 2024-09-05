@@ -12,5 +12,8 @@ public class Constants {
         public static final  String placeAnOrderApproved = "src/test/resources/json/PlaceAnOrderApproved.json";
         public static final  String placeAnOrderDelivered = "src/test/resources/json/PlaceAnOrderDelivered.json";
         public static final  String placeAnOrderPlaced = "src/test/resources/json/PlaceAnOrderPlaced.json";
+        public static final  String createAUSer = "src/test/resources/json/CreateAUSer.json";
+        public static final  String createUsersWithList = "src/test/resources/json/CreateUsersWithList.json";
+        public static final  String updateUser = "src/test/resources/json/UpdateUser.json";
 
 }
