@@ -14,8 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static org.assertj.core.api.Assertions.assertThat;
-import static util.Constants.placeAnOrder;
-import static util.Constants.updateUser;
+import static util.Constants.*;
 
 public class updateUserStepDefinitions {
     @Steps(shared = true)
@@ -29,12 +28,14 @@ public class updateUserStepDefinitions {
 
     @Given("a user is created")
     public void a_user_is_created() {
-        responseCreateUser = userSteps.createUser();
+        File createUserUpdate = new File(createUserForUpdate);
+        responseCreateUser = userSteps.createUser(createUserUpdate);
         userName = responseCreateUser.jsonPath().getString("username");
     }
     @When("a PUT request is sent to user endpoint")
     public void a_put_request_is_sent_to_user_endpoint() {
         responseUpdateUser = userSteps.updateUser(userName);
+        userName = responseUpdateUser.jsonPath().getString("username");
     }
     @Then("the update user response status code should be {int}")
     public void the_update_user_response_status_code_should_be(int status) {
@@ -46,6 +47,5 @@ public class updateUserStepDefinitions {
         String strGetUser = String.valueOf(responseGetUser.prettyPrint());
         String jsonUpdateUser= FileUtils.readFileToString(new File(updateUser), StandardCharsets.UTF_8);
         assertThatJson(strGetUser).isEqualTo(jsonUpdateUser);
-        userSteps.deleteUser(userName);
     }
 }

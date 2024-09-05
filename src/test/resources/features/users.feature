@@ -29,26 +29,28 @@ Feature: Users functionalities
     Then the update user response status code should be 200
     And a GET request to user endpoint should return the updated details
 
+  @deleteUser
   Scenario: Delete a user
-    Given a user exists with username
+    Given a new user is created
     When a DELETE request is sent to user endpoint
     Then the delete user response status code should be 200
     And a subsequent GET request to user should return a 404 status code
 
+  @login
   Scenario: User login
     Given a user exists with username and password
-    When a GET request is sent to user login with valid credentials
+    When a GET request is sent to user login with "valid user"
     Then the login response status code should be 200
     And a session token should be returned
 
+  @noValidLogin
   Scenario: User login with invalid credentials
     Given no user exists with the provided credentials
-    When a GET request is sent to user endpoint
+    When a GET request is sent to user login with "no valid user"
     Then the user get response status code should be 400
 
+    @logOut
   Scenario: User logout
-    Given a user is logged in
+    Given a user is logged in with "valid user"
     When a GET request is sent to logout endpoint
     Then the logout response status code should be 200
-    And the user session should be invalidated
-

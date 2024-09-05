@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         glue = "stepdefinitions",
-        features = "src/test/resources/features/store.feature",
-        tags = "@checkInventory"
+        features = "src/test/resources/features/store.feature"
+        //tags = "@checkInventory"
 )
 public class RunnerStore {
 }

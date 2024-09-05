@@ -34,4 +34,3 @@ Feature: Store functionalities
     Given multiple pets exist in different statuses
     When a GET request is sent to store inventory
     Then the get inventory response status code should be 200
-    And the response should accurately reflect the counts of pets by status

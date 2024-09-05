@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="4" name="Pets functionalities" skipped="0" tests="15" time="0.23" timestamp="2024-09-04 07:24:51"><testcase name="Create a new pet"/><testcase name="Create a new pet without requiered fields"><failure message="&#10;expected: 400&#10; but was: 200" type="org.opentest4j.AssertionFailedError">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="4" name="Pets functionalities" skipped="0" tests="15" time="0.23" timestamp="2024-09-05 11:50:54"><testcase name="Create a new pet"/><testcase name="Create a new pet without requiered fields"><failure message="&#10;expected: 400&#10; but was: 200" type="org.opentest4j.AssertionFailedError">
 expected: 400
  but was: 200</failure><system-err>
 expected: 400

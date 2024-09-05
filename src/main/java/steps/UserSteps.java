@@ -21,6 +21,15 @@ public class UserSteps {
                 .extract().response();
         return responseCreateUser;
     }
+    public Response createUser(File file) {
+        Response responseCreateUser = RestAssured.given().body(file)
+                .accept("application/json")
+                .contentType("application/json")
+                .when().post("/api/v3/user")
+                .then()
+                .extract().response();
+        return responseCreateUser;
+    }
 
     @Step("#actor requested create users by list")
     public Response createUserList() {

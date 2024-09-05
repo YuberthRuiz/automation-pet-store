@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         glue = "stepdefinitions",
-        features = "src/test/resources/features/users.feature",
-        tags = "@updateUser"
+        features = "src/test/resources/features/users.feature"
+        //tags = "@noValidLogin"
 )
 public class RunnerUser {
 }

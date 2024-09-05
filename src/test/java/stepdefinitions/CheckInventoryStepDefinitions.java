@@ -12,7 +12,7 @@ import java.io.File;
 import static org.assertj.core.api.Assertions.assertThat;
 import static util.Constants.*;
 
-public class checkInventoryStepDefinitions {
+public class CheckInventoryStepDefinitions {
     @Steps(shared = true)
     StoreSteps storeSteps;
 

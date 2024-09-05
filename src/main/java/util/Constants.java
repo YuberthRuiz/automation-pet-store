@@ -15,5 +15,7 @@ public class Constants {
         public static final  String createAUSer = "src/test/resources/json/CreateAUSer.json";
         public static final  String createUsersWithList = "src/test/resources/json/CreateUsersWithList.json";
         public static final  String updateUser = "src/test/resources/json/UpdateUser.json";
+        public static final  String createUserForUpdate = "src/test/resources/json/createAUserForUpdate.json";
+        public static final  String createUserForDelete = "src/test/resources/json/createAUserForDelete.json";
 
 }

@@ -59,3 +59,7 @@ test {
 gradle.startParameter.continueOnFailure = true
 
 test.finalizedBy(aggregate)
+
+test {
+    systemProperty "env", System.getProperty("env", "default")
+}

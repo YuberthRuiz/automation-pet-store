@@ -1,5 +1,7 @@
 package steps;
 
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import io.cucumber.java.Before;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -13,7 +15,17 @@ import static util.Constants.*;
 public class PetSteps {
     @Before
     public void setupBaseUrl() {
-        RestAssured.baseURI = "http://localhost:8080";
+        String environment = System.getProperty("env", "default");
+
+        Config config = ConfigFactory.load();
+
+        String baseUrl = config.getString("environments." + environment + ".base.url");
+
+        RestAssured.baseURI = baseUrl;
+
+        System.out.println("Using environment: " + environment);
+        System.out.println("Base URL set to: " + baseUrl);
+
     }
 
     @Step("#actor requested the add pet service")
