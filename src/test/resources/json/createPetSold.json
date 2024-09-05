@@ -1,0 +1,18 @@
+{
+  "id": 11,
+  "name": "Kitty",
+  "category": {
+    "id": 2,
+    "name": "Cats"
+  },
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "tag2"
+    }
+  ],
+  "status": "sold"
+}

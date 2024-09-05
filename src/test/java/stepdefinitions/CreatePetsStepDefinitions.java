@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import net.serenitybdd.annotations.Steps;
+import org.json.JSONException;
 import steps.PetSteps;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,5 +37,15 @@ public class CreatePetsStepDefinitions {
         int idSearch = responseSearchById.jsonPath().get("id");
         assertThat(idRequest).isEqualTo(idSearch);
     }
+
+    @When("a POST request is sent to pet endpoint without {string}")
+    public void a_post_request_is_sent_to_pet_endpoint_without(String missingAtribute) throws JSONException {
+        responseCreatePet = petSteps.createPetMissingAttribute(missingAtribute);
+    }
+    @Then("the create status code should be {int}")
+    public void the_response_status_code_should_be(int status) {
+        assertThat(responseCreatePet.getStatusCode()).isEqualTo(status);
+    }
+
 
 }

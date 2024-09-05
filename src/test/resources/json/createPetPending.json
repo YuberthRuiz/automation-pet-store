@@ -1,0 +1,18 @@
+{
+  "id": 12,
+  "name": "Ruffy",
+  "category": {
+    "id": 3,
+    "name": "Parrot"
+  },
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "tag1"
+    }
+  ],
+  "status": "pending"
+}

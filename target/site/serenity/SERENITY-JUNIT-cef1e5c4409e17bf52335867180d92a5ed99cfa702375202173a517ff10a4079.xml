@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Pets functionalities" skipped="0" tests="1" time="0.15" timestamp="2024-09-03 06:06:34"><testcase name="Create a new pet"/></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="4" name="Pets functionalities" skipped="0" tests="15" time="0.23" timestamp="2024-09-04 07:24:51"><testcase name="Create a new pet"/><testcase name="Create a new pet without requiered fields"><failure message="&#10;expected: 400&#10; but was: 200" type="org.opentest4j.AssertionFailedError">
+expected: 400
+ but was: 200</failure><system-err>
+expected: 400
+ but was: 200
+stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be(CreatePetsStepDefinitions.java:47)
+✽.the create status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:16)
+</system-err></testcase><testcase name="Get pet by ID"/><testcase name="Get pet by non-existing ID"/><testcase name="Update an existing pet"/><testcase name="Delete a pet"><failure message="&#10;expected: 400&#10; but was: 200" type="org.opentest4j.AssertionFailedError">
+expected: 400
+ but was: 200</failure><system-err>
+expected: 400
+ but was: 200
+stepdefinitions.DeletePetStepDefinitions.the_delete_response_status_code_should_be(DeletePetStepDefinitions.java:23)
+✽.the delete response status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:46)
+</system-err></testcase><testcase name="Find pets by status"/><testcase name="Find pets by tag"/><testcase name="Successfully upload a photo of a pet"><failure message="&#10;expected: 200&#10; but was: 415" type="org.opentest4j.AssertionFailedError">
+expected: 200
+ but was: 415</failure><system-err>
+expected: 200
+ but was: 415
+stepdefinitions.UploadPhotoPetStepDefinitions.the_upload_photo_response_status_code_should_be(UploadPhotoPetStepDefinitions.java:30)
+✽.the upload photo response status code should be 200(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:82)
+</system-err></testcase></testsuite>

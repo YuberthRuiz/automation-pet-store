@@ -1,13 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Pets functionalities" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-03T16:07:05" hostname="MacBook-Pro-de-Yuberth.local" time="13.298">
+<testsuite name="Pets functionalities" tests="15" skipped="0" failures="4" errors="0" timestamp="2024-09-05T00:24:51" hostname="MacBook-Pro-de-Yuberth.local" time="1.793">
   <properties/>
-  <testcase name="Get pet by ID" classname="Pets functionalities" time="13.298"/>
+  <testcase name="Create a new pet" classname="Pets functionalities" time="1.088"/>
+  <testcase name="Create a new pet without requiered fields #1" classname="Pets functionalities" time="0.078">
+    <failure message="org.opentest4j.AssertionFailedError: &#10;expected: 400&#10; but was: 200" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+expected: 400
+ but was: 200
+	at app//stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be(CreatePetsStepDefinitions.java:47)
+	at ✽.the create status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:16)
+</failure>
+  </testcase>
+  <testcase name="Create a new pet without requiered fields #2" classname="Pets functionalities" time="0.027">
+    <failure message="org.opentest4j.AssertionFailedError: &#10;expected: 400&#10; but was: 200" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+expected: 400
+ but was: 200
+	at app//stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be(CreatePetsStepDefinitions.java:47)
+	at ✽.the create status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:16)
+</failure>
+  </testcase>
+  <testcase name="Get pet by ID" classname="Pets functionalities" time="0.133"/>
+  <testcase name="Get pet by non-existing ID" classname="Pets functionalities" time="0.02"/>
+  <testcase name="Update an existing pet" classname="Pets functionalities" time="0.052"/>
+  <testcase name="Delete a pet #1" classname="Pets functionalities" time="0.048"/>
+  <testcase name="Delete a pet #2" classname="Pets functionalities" time="0.036">
+    <failure message="org.opentest4j.AssertionFailedError: &#10;expected: 400&#10; but was: 200" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+expected: 400
+ but was: 200
+	at app//stepdefinitions.DeletePetStepDefinitions.the_delete_response_status_code_should_be(DeletePetStepDefinitions.java:23)
+	at ✽.the delete response status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:46)
+</failure>
+  </testcase>
+  <testcase name="Find pets by status #1" classname="Pets functionalities" time="0.06"/>
+  <testcase name="Find pets by status #2" classname="Pets functionalities" time="0.045"/>
+  <testcase name="Find pets by status #3" classname="Pets functionalities" time="0.043"/>
+  <testcase name="Find pets by tag #1" classname="Pets functionalities" time="0.033"/>
+  <testcase name="Find pets by tag #2" classname="Pets functionalities" time="0.035"/>
+  <testcase name="Find pets by tag #3" classname="Pets functionalities" time="0.037"/>
+  <testcase name="Successfully upload a photo of a pet" classname="Pets functionalities" time="0.057">
+    <failure message="org.opentest4j.AssertionFailedError: &#10;expected: 200&#10; but was: 415" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: 
+expected: 200
+ but was: 415
+	at app//stepdefinitions.UploadPhotoPetStepDefinitions.the_upload_photo_response_status_code_should_be(UploadPhotoPetStepDefinitions.java:30)
+	at ✽.the upload photo response status code should be 200(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:82)
+</failure>
+  </testcase>
   <system-out><![CDATA[
-@pets @getpetbyid
-Scenario: Get pet by ID                                   ?[90m# src/test/resources/features/pets.feature:12?[0m
-  ?[32mGiven ?[0m?[32ma pet exists with ID?[0m                              ?[90m# stepdefinitions.PetByIdStepDefinitions.a_pet_exists_with_id()?[0m
-  ?[32mWhen ?[0m?[32ma GET request is sent to pet endpoint?[0m              ?[90m# stepdefinitions.PetByIdStepDefinitions.a_get_request_is_sent_to_pet()?[0m
-  ?[32mThen ?[0m?[32mthe response status code should be ?[0m?[32m?[1m200?[0m             ?[90m# stepdefinitions.PetByIdStepDefinitions.the_response_status_code_should_be(int)?[0m
+@pets @createpet
+Scenario: Create a new pet                                             ?[90m# src/test/resources/features/pets.feature:6?[0m
+  ?[32mGiven ?[0m?[32ma pet with valid details?[0m                                       ?[90m# stepdefinitions.CreatePetsStepDefinitions.a_pet_with_valid_details()?[0m
+  ?[32mWhen ?[0m?[32ma POST request is sent to pet endpoint?[0m                          ?[90m# stepdefinitions.CreatePetsStepDefinitions.a_post_request_is_sent_to_pet()?[0m
+  ?[32mThen ?[0m?[32mthe response status code should be successful?[0m                   ?[90m# stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be_or()?[0m
+  ?[32mAnd ?[0m?[32mthe pet should be retrievable using a GET request with the petId?[0m ?[90m# stepdefinitions.CreatePetsStepDefinitions.the_pet_should_be_retrievable_using_a_get_request_to_pet()?[0m
+
+@pets @createPetWrong
+Scenario Outline: Create a new pet without requiered fields  ?[90m# src/test/resources/features/pets.feature:19?[0m
+  ?[32mGiven ?[0m?[32ma pet with valid details?[0m                             ?[90m# stepdefinitions.CreatePetsStepDefinitions.a_pet_with_valid_details()?[0m
+  ?[32mWhen ?[0m?[32ma POST request is sent to pet endpoint without ?[0m?[32m?[1m"name"?[0m ?[90m# stepdefinitions.CreatePetsStepDefinitions.a_post_request_is_sent_to_pet_endpoint_without(java.lang.String)?[0m
+  ?[31mThen ?[0m?[31mthe create status code should be ?[0m?[31m?[1m400?[0m                  ?[90m# stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be(int)?[0m
+      ?[31morg.opentest4j.AssertionFailedError: 
+expected: 400
+ but was: 200
+	at stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be(CreatePetsStepDefinitions.java:47)
+	at ✽.the create status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:16)
+?[0m
+
+@pets @createPetWrong
+Scenario Outline: Create a new pet without requiered fields       ?[90m# src/test/resources/features/pets.feature:20?[0m
+  ?[32mGiven ?[0m?[32ma pet with valid details?[0m                                  ?[90m# stepdefinitions.CreatePetsStepDefinitions.a_pet_with_valid_details()?[0m
+  ?[32mWhen ?[0m?[32ma POST request is sent to pet endpoint without ?[0m?[32m?[1m"photoUrls"?[0m ?[90m# stepdefinitions.CreatePetsStepDefinitions.a_post_request_is_sent_to_pet_endpoint_without(java.lang.String)?[0m
+  ?[31mThen ?[0m?[31mthe create status code should be ?[0m?[31m?[1m400?[0m                       ?[90m# stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be(int)?[0m
+      ?[31morg.opentest4j.AssertionFailedError: 
+expected: 400
+ but was: 200
+	at stepdefinitions.CreatePetsStepDefinitions.the_response_status_code_should_be(CreatePetsStepDefinitions.java:47)
+	at ✽.the create status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:16)
+?[0m
+
+@pets @getPetById
+Scenario: Get pet by ID                                   ?[90m# src/test/resources/features/pets.feature:23?[0m
+  ?[32mGiven ?[0m?[32ma pet exists with ID?[0m                              ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.a_pet_exists_with_id()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet endpoint?[0m              ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.a_get_request_is_sent_to_pet()?[0m
+  ?[32mThen ?[0m?[32mthe response status code should be ?[0m?[32m?[1m200?[0m             ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.the_response_status_code_should_be(int)?[0m
 {
     "id": 10,
     "category": {
@@ -21,7 +94,7 @@ Scenario: Get pet by ID                                   ?[90m# src/test/resour
     "tags": [
         {
             "id": 0,
-            "name": "string"
+            "name": "tag3"
         }
     ],
     "status": "available"
@@ -39,14 +112,154 @@ Scenario: Get pet by ID                                   ?[90m# src/test/resour
     "tags": [
         {
             "id": 0,
-            "name": "string"
+            "name": "tag3"
         }
     ],
     "status": "available"
 }
-  ?[32mAnd ?[0m?[32mthe response should contain the correct pet details?[0m ?[90m# stepdefinitions.PetByIdStepDefinitions.the_response_should_contain_the_correct_pet_details()?[0m
+  ?[32mAnd ?[0m?[32mthe response should contain the correct pet details?[0m ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.the_response_should_contain_the_correct_pet_details()?[0m
+
+@pets @wrongId
+Scenario: Get pet by non-existing ID          ?[90m# src/test/resources/features/pets.feature:30?[0m
+  ?[32mGiven ?[0m?[32mno pet exists with ID ?[0m?[32m?[1m1111?[0m            ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.no_pet_exists_with_id(int)?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet endpoint?[0m  ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.a_get_request_is_sent_to_pet()?[0m
+  ?[32mThen ?[0m?[32mthe response status code should be ?[0m?[32m?[1m404?[0m ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.the_response_status_code_should_be(int)?[0m
+
+@pets @updatePet
+Scenario: Update an existing pet                                      ?[90m# src/test/resources/features/pets.feature:36?[0m
+  ?[32mGiven ?[0m?[32ma pet exists with ID?[0m                                          ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.a_pet_exists_with_id()?[0m
+  ?[32mWhen ?[0m?[32ma PUT request is sent to pet endpoint?[0m                          ?[90m# stepdefinitions.UpdatePetStepDefinitions.a_put_request_is_sent_to_pet_endpoint()?[0m
+  ?[32mThen ?[0m?[32mthe response status should be ?[0m?[32m?[1m200?[0m                              ?[90m# stepdefinitions.UpdatePetStepDefinitions.the_response_status_should_be(int)?[0m
+{
+    "id": 10,
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "name": "doggieUpdated",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "unavailable"
+}
+  ?[32mAnd ?[0m?[32ma GET request to pet endpoint should return the updated details?[0m ?[90m# stepdefinitions.UpdatePetStepDefinitions.a_get_request_to_pet_endpoint_should_return_the_updated_details()?[0m
+
+@pets @deletePet
+Scenario Outline: Delete a pet                                                   ?[90m# src/test/resources/features/pets.feature:50?[0m
+  ?[32mGiven ?[0m?[32ma pet exists with ID?[0m                                                     ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.a_pet_exists_with_id()?[0m
+  ?[32mWhen ?[0m?[32ma DELETE request is sent to pet ID ?[0m?[32m?[1m10?[0m?[32m endpoint?[0m                            ?[90m# stepdefinitions.DeletePetStepDefinitions.a_delete_request_is_sent_to_pet_endpoint(int)?[0m
+  ?[32mThen ?[0m?[32mthe delete response status code should be ?[0m?[32m?[1m200?[0m                             ?[90m# stepdefinitions.DeletePetStepDefinitions.the_delete_response_status_code_should_be(int)?[0m
+  ?[32mAnd ?[0m?[32ma subsequent GET request to pet with ID ?[0m?[32m?[1m10?[0m?[32m should return a ?[0m?[32m?[1m404?[0m?[32m status code?[0m ?[90m# stepdefinitions.DeletePetStepDefinitions.a_subsequent_get_request_to_pet_with_id_should_return_a_status_code(int,int)?[0m
+
+@pets @deletePet
+Scenario Outline: Delete a pet                                                    ?[90m# src/test/resources/features/pets.feature:51?[0m
+  ?[32mGiven ?[0m?[32ma pet exists with ID?[0m                                                      ?[90m# stepdefinitions.SearchPetByIdStepDefinitions.a_pet_exists_with_id()?[0m
+  ?[32mWhen ?[0m?[32ma DELETE request is sent to pet ID ?[0m?[32m?[1m112?[0m?[32m endpoint?[0m                            ?[90m# stepdefinitions.DeletePetStepDefinitions.a_delete_request_is_sent_to_pet_endpoint(int)?[0m
+  ?[31mThen ?[0m?[31mthe delete response status code should be ?[0m?[31m?[1m400?[0m                              ?[90m# stepdefinitions.DeletePetStepDefinitions.the_delete_response_status_code_should_be(int)?[0m
+      ?[31morg.opentest4j.AssertionFailedError: 
+expected: 400
+ but was: 200
+	at stepdefinitions.DeletePetStepDefinitions.the_delete_response_status_code_should_be(DeletePetStepDefinitions.java:23)
+	at ✽.the delete response status code should be 400(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:46)
+?[0m
+  ?[36mAnd ?[0m?[36ma subsequent GET request to pet with ID ?[0m?[36m?[1m112?[0m?[36m should return a ?[0m?[36m?[1m404?[0m?[36m status code?[0m ?[90m# stepdefinitions.DeletePetStepDefinitions.a_subsequent_get_request_to_pet_with_id_should_return_a_status_code(int,int)?[0m
+
+@pets @findByStatus
+Scenario Outline: Find pets by status                             ?[90m# src/test/resources/features/pets.feature:61?[0m
+  ?[32mGiven ?[0m?[32mpets exist with different statuses?[0m                        ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.pets_exist_with_different_statuses()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet findByStatus with ?[0m?[32m?[1m"available"?[0m ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.a_get_request_is_sent_to_pet_find_by_status_endpoint(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mthe search status code should be ?[0m?[32m?[1m200?[0m                       ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.the_search_response_status_code_should_be(int)?[0m
+  ?[32mAnd ?[0m?[32mall returned pets should have the status ?[0m?[32m?[1m"available"?[0m        ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.all_returned_pets_should_have_the_status(java.lang.String)?[0m
+
+@pets @findByStatus
+Scenario Outline: Find pets by status                           ?[90m# src/test/resources/features/pets.feature:62?[0m
+  ?[32mGiven ?[0m?[32mpets exist with different statuses?[0m                      ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.pets_exist_with_different_statuses()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet findByStatus with ?[0m?[32m?[1m"pending"?[0m ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.a_get_request_is_sent_to_pet_find_by_status_endpoint(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mthe search status code should be ?[0m?[32m?[1m200?[0m                     ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.the_search_response_status_code_should_be(int)?[0m
+  ?[32mAnd ?[0m?[32mall returned pets should have the status ?[0m?[32m?[1m"pending"?[0m        ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.all_returned_pets_should_have_the_status(java.lang.String)?[0m
+
+@pets @findByStatus
+Scenario Outline: Find pets by status                        ?[90m# src/test/resources/features/pets.feature:63?[0m
+  ?[32mGiven ?[0m?[32mpets exist with different statuses?[0m                   ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.pets_exist_with_different_statuses()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet findByStatus with ?[0m?[32m?[1m"sold"?[0m ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.a_get_request_is_sent_to_pet_find_by_status_endpoint(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mthe search status code should be ?[0m?[32m?[1m200?[0m                  ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.the_search_response_status_code_should_be(int)?[0m
+  ?[32mAnd ?[0m?[32mall returned pets should have the status ?[0m?[32m?[1m"sold"?[0m        ?[90m# stepdefinitions.SearchPetByStatusStepDefinitions.all_returned_pets_should_have_the_status(java.lang.String)?[0m
+
+@pets @findByTag
+Scenario Outline: Find pets by tag                         ?[90m# src/test/resources/features/pets.feature:74?[0m
+  ?[32mGiven ?[0m?[32mpets exist with different tags?[0m                     ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.pets_exist_with_different_tags()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet findByTags with ?[0m?[32m?[1m"tag1"?[0m ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.a_get_request_is_sent_to_pet_find_by_tag_endpoint(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mthe tags search status code should be ?[0m?[32m?[1m200?[0m           ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.the_search_response_tag_code_should_be(int)?[0m
+  ?[32mAnd ?[0m?[32mall returned pets should have the tags ?[0m?[32m?[1m"tag1"?[0m        ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.all_returned_pets_should_have_the_tag(java.lang.String)?[0m
+
+@pets @findByTag
+Scenario Outline: Find pets by tag                         ?[90m# src/test/resources/features/pets.feature:75?[0m
+  ?[32mGiven ?[0m?[32mpets exist with different tags?[0m                     ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.pets_exist_with_different_tags()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet findByTags with ?[0m?[32m?[1m"tag2"?[0m ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.a_get_request_is_sent_to_pet_find_by_tag_endpoint(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mthe tags search status code should be ?[0m?[32m?[1m200?[0m           ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.the_search_response_tag_code_should_be(int)?[0m
+  ?[32mAnd ?[0m?[32mall returned pets should have the tags ?[0m?[32m?[1m"tag2"?[0m        ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.all_returned_pets_should_have_the_tag(java.lang.String)?[0m
+
+@pets @findByTag
+Scenario Outline: Find pets by tag                         ?[90m# src/test/resources/features/pets.feature:76?[0m
+  ?[32mGiven ?[0m?[32mpets exist with different tags?[0m                     ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.pets_exist_with_different_tags()?[0m
+  ?[32mWhen ?[0m?[32ma GET request is sent to pet findByTags with ?[0m?[32m?[1m"tag3"?[0m ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.a_get_request_is_sent_to_pet_find_by_tag_endpoint(java.lang.String)?[0m
+  ?[32mThen ?[0m?[32mthe tags search status code should be ?[0m?[32m?[1m200?[0m           ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.the_search_response_tag_code_should_be(int)?[0m
+  ?[32mAnd ?[0m?[32mall returned pets should have the tags ?[0m?[32m?[1m"tag3"?[0m        ?[90m# stepdefinitions.SearchPetByTagsStepDefinitions.all_returned_pets_should_have_the_tag(java.lang.String)?[0m
+
+@pets @uploadPetPhoto
+Scenario: Successfully upload a photo of a pet                              ?[90m# src/test/resources/features/pets.feature:79?[0m
+  ?[32mGiven ?[0m?[32ma pet exists?[0m                                                        ?[90m# stepdefinitions.UploadPhotoPetStepDefinitions.a_pet_exists()?[0m
+  ?[32mWhen ?[0m?[32ma POST request is sent to pet uploadImage with the photo file?[0m        ?[90m# stepdefinitions.UploadPhotoPetStepDefinitions.a_post_request_is_sent_to_pet_upload_image_with_the_photo_file()?[0m
+  ?[31mThen ?[0m?[31mthe upload photo response status code should be ?[0m?[31m?[1m200?[0m                  ?[90m# stepdefinitions.UploadPhotoPetStepDefinitions.the_upload_photo_response_status_code_should_be(int)?[0m
+      ?[31morg.opentest4j.AssertionFailedError: 
+expected: 200
+ but was: 415
+	at stepdefinitions.UploadPhotoPetStepDefinitions.the_upload_photo_response_status_code_should_be(UploadPhotoPetStepDefinitions.java:30)
+	at ✽.the upload photo response status code should be 200(file:///Users/yuberthruiz/Downloads/AutomationPet/src/test/resources/features/pets.feature:82)
+?[0m
+  ?[36mAnd ?[0m?[36mthe response should indicate that the photo was uploaded successfully?[0m ?[90m# stepdefinitions.UploadPhotoPetStepDefinitions.the_response_should_indicate_that_the_photo_was_uploaded_successfully()?[0m
 ]]></system-out>
   <system-err><![CDATA[[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Create a new pet(pets-functionalities;create-a-new-pet)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Create a new pet
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Create a new pet without requiered fields(pets-functionalities;create-a-new-pet-without-requiered-fields)
+--------------------------------------------------------------------------------
+[Test worker] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
+
+Create a new pet without requiered fields
+-----------------------------------------------------------------------
+[Test worker] ERROR  -     Test failed at step: Then the create status code should be 400
+[Test worker] ERROR  -     expected: 400 but was: 200
+[Test worker] INFO  - 
   _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
  |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
    | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
@@ -62,5 +275,129 @@ Get pet by ID(pets-functionalities;get-pet-by-id)
 
 Get pet by ID
 ----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Get pet by non-existing ID(pets-functionalities;get-pet-by-non-existing-id)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Get pet by non-existing ID
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Update an existing pet(pets-functionalities;update-an-existing-pet)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Update an existing pet
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Delete a pet(pets-functionalities;delete-a-pet)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Delete a pet
+----------------------------------------------------------------------
+[Test worker] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
+
+Delete a pet
+-----------------------------------------------------------------------
+[Test worker] ERROR  -     Test failed at step: Then the delete response status code should be 400
+[Test worker] ERROR  -     expected: 400 but was: 200
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Find pets by status(pets-functionalities;find-pets-by-status)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Find pets by status
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Find pets by status
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Find pets by tag(pets-functionalities;find-pets-by-tag)
+--------------------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Find pets by tag
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+
+Find pets by tag
+----------------------------------------------------------------------
+[Test worker] INFO  - 
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \ 
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
+
+Successfully upload a photo of a pet(pets-functionalities;successfully-upload-a-photo-of-a-pet)
+--------------------------------------------------------------------------------
+[Test worker] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
+
+Successfully upload a photo of a pet
+-----------------------------------------------------------------------
+[Test worker] ERROR  -     Test failed at step: Then the upload photo response status code should be 200
+[Test worker] ERROR  -     expected: 200 but was: 415
 ]]></system-err>
 </testsuite>
